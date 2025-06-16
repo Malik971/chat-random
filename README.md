@@ -1,54 +1,50 @@
-# React + TypeScript + Vite
+# 🐱 Chat Explorer - Application React avec Vite + TypeScript + Tailwind CSS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenue dans **Chat Explorer**, une application web simple développée avec **React**, **TypeScript**, **Vite** et **Tailwind CSS**. Ce projet a pour but de récupérer de façon aléatoire des faits amusants sur les chats ainsi que des images de chats aléatoires via deux APIs publiques.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Objectif de l'application
 
-## Expanding the ESLint configuration
+L'application permet à l'utilisateur de :
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Afficher un **fait aléatoire** sur les chats.
+- Afficher une **image de chat aléatoire**.
+- Générer plusieurs cartes contenant des faits et des images de chats via un bouton "Aléatoire".
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Chaque clic sur le bouton ajoute une nouvelle carte contenant :
+- Un texte (fact) tiré de l'API : `https://catfact.ninja/fact`
+- Une image tirée de l'API : `https://cataas.com/cat?timestamp=${Date.now()}` (image aléatoire de chat)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🧠 Technologies utilisées
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- **React** : bibliothèque JavaScript pour construire des interfaces utilisateur.
+- **Vite** : environnement de développement rapide et moderne.
+- **TypeScript** : superset de JavaScript avec typage statique.
+- **Tailwind CSS** : framework CSS utilitaire pour un design rapide et responsive.
+- **APIs publiques** :
+  - [Cat Fact API](https://catfact.ninja)
+  - [Cataas (Cat as a Service)](https://cataas.com)
+
+---
+
+## 🔍 Structure globale
+
+- `App.tsx` : point d'entrée principal de l'application.
+- `Home.tsx` : composant principal avec :
+  - Un **header** avec un champ de recherche (non-fonctionnel pour l’instant) et un bouton "Aléatoire".
+  - Une section où les cartes avec des faits + images sont affichées.
+- `useState` : pour stocker dynamiquement les cartes générées.
+- `useEffect` : peut être utilisé pour précharger une première carte ou gérer des effets secondaires (ex: fetch initial, logs, etc.).
+
+---
+
+## 🚀 Lancer le projet
+
+### 1. Cloner le repo
+
+```bash
+git clone https://github.com/Malik971/chat-random.git
+cd chat-random

@@ -1,7 +1,11 @@
+import Home from "./pages/Home";
+
 function App() {
   return (
     <>
-      <div>Malik Le Roi Des Chat !</div>
+      <section>
+        <Home />
+      </section>
     </>
   );
 }
